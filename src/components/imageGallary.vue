@@ -66,25 +66,25 @@ export default {
     return {
       images: [
         {
-          src: "https://i.pinimg.com/736x/20/21/54/20215479b52f4a638d9868da9e7965e4.jpg",
+          src: "https://img.freepik.com/premium-photo/anime-style-illustration-full-moon-clouds_1096472-11180.jpg",
           alt: "moon dark",
           title: "moon dark",
           description: "the moon in the dark sky",
         },
         {
-          src: "https://avatarfiles.alphacoders.com/339/thumb-1920-339627.jpg",
+          src: "https://i.ytimg.com/vi/TFvASHo9jr8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBzYqNKk_iN50K0bbDFT7LDTGOSYg",
           alt: "Anime",
           title: "anime boy",
           description: "this is an anime",
         },
         {
-          src: "https://cdn.cssauthor.com/wp-content/uploads/2020/11/Collection-of-Excellent-Dark-Wallpapers.jpg?strip=all&lossy=1&ssl=1",
+          src: "https://images.stockcake.com/public/8/2/d/82d90271-085d-4357-bcef-e098a9dab547_large/majestic-black-panther-stockcake.jpg",
           alt: "Dark Wallpaper",
           title: "Black Panther",
           description: "A majestic black panther in the wild",
         },
         {
-          src: "https://thumbs.dreamstime.com/b/butterfly-blue-sky-sun-24906248.jpg",
+          src: "https://wallpapers.com/images/hd/dark-butterfly-1280-x-1024-wallpaper-kbt9qd2pwga32znx.jpg",
           alt: "Blue Butterfly",
           title: "Blue Butterfly",
           description: "A beautiful blue butterfly in the sky",
