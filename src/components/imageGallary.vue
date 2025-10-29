@@ -19,6 +19,18 @@
         :key="index"
         class="gallery-item"
       >
+        <!-- Favorite toggle button top-left. Uses .stop so it doesn't open the lightbox -->
+        <button
+          class="fav-btn"
+          :class="{ active: image.fav }"
+          @click.stop="toggleFav(indexMap[index])"
+          :aria-pressed="image.fav"
+          :title="image.fav ? 'Unfavorite' : 'Add to favorites'"
+        >
+          <span v-if="image.fav">❤</span>
+          <span v-else>♡</span>
+        </button>
+
         <img :src="image.src" :alt="image.alt" @click="selectImage(indexMap[index])" />
         <button class="delete-btn" @click="deleteImage(indexMap[index])">Delete</button>
       </div>
@@ -70,24 +82,28 @@ export default {
           alt: "moon dark",
           title: "moon dark",
           description: "the moon in the dark sky",
+          fav: false,
         },
         {
           src: "https://i.ytimg.com/vi/TFvASHo9jr8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBzYqNKk_iN50K0bbDFT7LDTGOSYg",
           alt: "Anime",
           title: "anime boy",
           description: "this is an anime",
+          fav: false,
         },
         {
           src: "https://images.stockcake.com/public/8/2/d/82d90271-085d-4357-bcef-e098a9dab547_large/majestic-black-panther-stockcake.jpg",
           alt: "Dark Wallpaper",
           title: "Black Panther",
           description: "A majestic black panther in the wild",
+          fav: false,
         },
         {
           src: "https://wallpapers.com/images/hd/dark-butterfly-1280-x-1024-wallpaper-kbt9qd2pwga32znx.jpg",
           alt: "Blue Butterfly",
           title: "Blue Butterfly",
           description: "A beautiful blue butterfly in the sky",
+          fav: false,
         },
       ],
       deletedImages: [],
@@ -130,6 +146,12 @@ export default {
       this.selectedImageIndex = index;
       this.zoom = 1;
     },
+      toggleFav(index) {
+        // toggle favorite for image at real index
+        if (typeof index === "number" && this.images[index]) {
+          this.images[index].fav = !this.images[index].fav;
+        }
+      },
     closeLightbox() {
       this.selectedImageIndex = null;
     },
@@ -223,6 +245,34 @@ h2 {
   object-fit: cover;
   cursor: pointer;
   border-radius: 15px;
+}
+
+/* Favorite button shown on top-left of each image */
+.fav-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.85);
+  color: #ff3b3b;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.15s, background 0.15s;
+  z-index: 5; /* above image */
+}
+
+.fav-btn:hover { transform: scale(1.05); }
+
+.fav-btn.active {
+  background: #fff0f0;
+  color: #d40000;
 }
 
 .delete-btn {
